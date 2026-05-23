@@ -1,0 +1,45 @@
+package cl.duoc.usuarios.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class OpenApiConfig {
+
+    @Bean
+    public OpenAPI customOpenApi(){
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Microservicio de Usuarios API")
+                        .version("1.0.0")
+                        .description("Documentación interactiva de los endpoints de usuario"));
+    }
+
+    @Bean
+    public GroupedOpenApi rolesApi() {
+        return GroupedOpenApi.builder()
+                .group("1. Módulo de Roles")
+                .pathsToMatch("/api/v1/roles/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi personsApi(){
+        return GroupedOpenApi.builder()
+                .group("2. Módulo de Personas")
+                .pathsToMatch("/api/v1/persons/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi loginsApi(){
+        return GroupedOpenApi.builder()
+                .group("3. Módulo de Cuentas")
+                .pathsToMatch("/api/v1/logins/**")
+                .build();
+    }
+
+}
