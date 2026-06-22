@@ -39,5 +39,5 @@ insert into person(id, rut, name, last_name, email, phone) values
 (2, '99853188-4', 'Juan', 'Perez', 'ju.perez@client.com', '+56913541254');
 
 insert into login(id, username, password, person_id, rol_id) values
-(1, 'FunClaudia', '304Claudi', 1, 1),
-(2, 'Juanito', 'Juan1234', 2, 2);
+(1, 'FunClaudia', '$2a$10$OwY4KE5bo27XnvUCQhGmoOcouhmNRUrDJUfA7avjqivYVkCxX9evC', 1, 1),
+(2, 'Juanito', '$2a$10$GYebobepgy2KOrfBQVMIEODRmgHK4RJ0bwVFflPK7UmQeqCwmlESe', 2, 2);
