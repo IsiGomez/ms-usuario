@@ -8,10 +8,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "login")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter             @Setter
+@AllArgsConstructor @NoArgsConstructor
 public class Login {
 
     @Id

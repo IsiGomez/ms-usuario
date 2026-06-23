@@ -13,6 +13,7 @@ import cl.duoc.usuarios.repository.RolRepository;
 import cl.duoc.usuarios.service.LoginService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,7 @@ public class LoginImpl implements LoginService {
     private final PersonRepository personRepository;
     private final RolRepository rolRepository;
     private final LoginMapper loginMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
@@ -67,6 +69,7 @@ public class LoginImpl implements LoginService {
         Login login = loginMapper.toEntity(dto);
         login.setPerson(person);
         login.setRol(rol);
+        login.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         return loginMapper.toDtoInfo(loginRepository.save(login));
     }
@@ -89,7 +92,7 @@ public class LoginImpl implements LoginService {
         Rol rol = findRolById(dto.getRolId());
 
         login.setUsername(dto.getUsername());
-        login.setPassword(dto.getPassword());
+        login.setPassword(passwordEncoder.encode(dto.getPassword()));
         login.setPerson(person);
         login.setRol(rol);
 
