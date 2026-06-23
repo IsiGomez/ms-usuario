@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class OpenApiConfig {
 
-    private static final String SECURITY_SCHEME_NAME = "PortadorAuth";
+    private static final String SECURITY_SCHEME_NAME = "bearerAuth";
 
     @Bean
     public OpenAPI customOpenApi(){
@@ -28,8 +28,9 @@ public class OpenApiConfig {
                                 new SecurityScheme()
                                         .name(SECURITY_SCHEME_NAME)
                                         .type(SecurityScheme.Type.HTTP)
-                                        .scheme("Portador")
-                                        .bearerFormat("JWT")))
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                                        .description("Ingresa directamente tu token JWT aquí")))
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME));
     }
 
