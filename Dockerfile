@@ -1,7 +1,7 @@
 FROM maven:3.9-eclipse-temurin-25-alpine AS builder
 WORKDIR /build
 
-COPY pom.xml .
+COPY usuarios/pom.xml .
 RUN mvn dependency:go-offline -q
 
 COPY src ./src
