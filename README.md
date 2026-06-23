@@ -172,3 +172,11 @@ Los tests cubren la capa de servicio con JUnit 5 + Mockito:
 
 > Las contraseñas están hasheadas con BCrypt.   
 > Ademas usa el endpoint `/api/v1/auth` para obtener el token JWT.
+
+---
+
+### Integrantes
+
+**- Isidora Gómez**
+
+**- Rayen Bettancourt**
