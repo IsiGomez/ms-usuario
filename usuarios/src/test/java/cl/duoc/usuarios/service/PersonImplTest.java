@@ -56,7 +56,7 @@ public class PersonImplTest {
 
 
     @Test
-    @DisplayName("getById: debería retornar la persona cuando el id existe")
+    @DisplayName("getById: debería retornar a la persona cuando el id existe")
     void getById_deberiaRetornarPersona_cuandoExiste() {
         when(personRepository.findById(1L)).thenReturn(Optional.of(person));
         when(personMapper.toDto(person)).thenReturn(responseDto);
@@ -83,7 +83,7 @@ public class PersonImplTest {
 
 
     @Test
-    @DisplayName("getAll: debería retornar la lista de personas mapeada")
+    @DisplayName("getAll: debería retornar la lista de personas")
     void getAll_deberiaRetornarListaDePersonas() {
         when(personRepository.findAll()).thenReturn(List.of(person));
         when(personMapper.toDtoList(List.of(person))).thenReturn(List.of(responseDto));
@@ -96,7 +96,7 @@ public class PersonImplTest {
 
 
     @Test
-    @DisplayName("create: debería crear la persona cuando el rut y el email son únicos")
+    @DisplayName("create: debería crear a la persona cuando el rut y el email son únicos")
     void create_deberiaCrearPersona_cuandoRutYEmailSonUnicos() {
         when(personRepository.existsByRutIgnoreCase(requestDto.getRut())).thenReturn(false);
         when(personRepository.existsByEmailIgnoreCase(requestDto.getEmail())).thenReturn(false);
@@ -142,7 +142,7 @@ public class PersonImplTest {
 
 
     @Test
-    @DisplayName("update: debería actualizar la persona cuando los datos son válidos")
+    @DisplayName("update: debería actualizar a la persona cuando los datos son válidos")
     void update_deberiaActualizarPersona_cuandoDatosSonValidos() {
         when(personRepository.findById(1L)).thenReturn(Optional.of(person));
         when(personRepository.existsByRutIgnoreCaseAndIdNot(requestDto.getRut(), 1L)).thenReturn(false);

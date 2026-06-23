@@ -44,7 +44,7 @@ public class RolImplTest {
 
 
     @Test
-    @DisplayName("getById: debe retornar el rol cuando el id existe")
+    @DisplayName("getById: debería retornar el rol cuando el id existe")
     void getById_deberiaRetornarRol_cuandoExiste() {
         when(rolRepository.findById(1L)).thenReturn(Optional.of(rol));
         when(rolMapper.toDto(rol)).thenReturn(rolDto);
@@ -59,7 +59,7 @@ public class RolImplTest {
 
 
     @Test
-    @DisplayName("getById: debe lanzar  una excepción cuando el id no existe")
+    @DisplayName("getById: debería lanzar una excepción cuando el id no existe")
     void getById_deberiaLanzarExcepcion_cuandoNoExiste() {
         when(rolRepository.findById(99L)).thenReturn(Optional.empty());
 
@@ -72,7 +72,7 @@ public class RolImplTest {
 
 
     @Test
-    @DisplayName("getAll: debe retornar la lista completa de roles")
+    @DisplayName("getAll: debería retornar la lista completa de roles")
     void getAll_deberiaRetornarListaDeRoles() {
         Rol rol2 = new Rol(2L, "CLIENTE", "Rol de cliente");
         RolResponseDto dto2 = new RolResponseDto(2L, "CLIENTE", "Rol de cliente");
@@ -89,7 +89,7 @@ public class RolImplTest {
 
 
     @Test
-    @DisplayName("getAll: debe retornar lista vacía si no hay roles")
+    @DisplayName("getAll: debería retornar una lista vacía si no hay roles")
     void getAll_deberiaRetornarVacio_siNoHayRoles() {
         when(rolRepository.findAll()).thenReturn(List.of());
         when(rolMapper.toDtoList(List.of())).thenReturn(List.of());
