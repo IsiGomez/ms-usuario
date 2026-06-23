@@ -35,18 +35,18 @@ public class OpenApiConfig {
 
 
     @Bean
-    public GroupedOpenApi rolesApi() {
+    public GroupedOpenApi authApi() {
         return GroupedOpenApi.builder()
-                .group("1. Módulo de Roles")
-                .pathsToMatch("/api/v1/roles/**")
+                .group("0. Autenticación")
+                .pathsToMatch("/api/v1/auth")
                 .build();
     }
 
     @Bean
-    public GroupedOpenApi authApi() {
+    public GroupedOpenApi rolesApi() {
         return GroupedOpenApi.builder()
-                .group("0. Autenticación")
-                .pathsToMatch("/api/v1/logins/auth")
+                .group("1. Módulo de Roles")
+                .pathsToMatch("/api/v1/roles/**")
                 .build();
     }
 
