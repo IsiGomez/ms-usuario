@@ -27,7 +27,7 @@ spring:
     open-in-view: false
 
   flyway:
-    enable: true
+    enabled: true
 
 
 eureka:
